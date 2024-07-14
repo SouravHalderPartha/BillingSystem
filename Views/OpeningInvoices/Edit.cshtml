@@ -1,0 +1,24 @@
+﻿@using BillingSystem.Models.ViewModels
+@model OpeningInvoicesListViewModel
+
+
+
+<h2>Update OpeningInvoice </h2>
+<hr />
+
+<form method="post" asp-controller="OpeningInvoices" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+
+    <div class="mb-3">
+        <label asp-for="OpeningInvoices" class="form-label"></label>
+        <input asp-for="OpeningInvoices" class="form-control" />
+       
+    </div>
+   
+    <input type="submit" value="Update category" class="btn btn-primary" />
+</form>
+<div>
+    <a asp-controller="Category" asp-action="Index">Back to overview</a>
+</div>
+

@@ -1,0 +1,53 @@
+﻿@using BillingSystem.Models.ViewModels
+@model OpeningInvoicesListViewModel
+
+<h2>OpeningInvoices</h2>
+<hr />
+
+@if (!Model.OpeningInvoices.Any())
+{
+    <p>No results</p>
+}
+else
+{
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>ClientId</th>
+            <th>LinkServiceId</th>
+            <th>BillingStartDate</th>
+            <th>BillingEndDate</th>
+            <th>BillingDurationDays</th>
+            <th>DaysInMonths</th>
+            <th>BillingYear</th>
+            <th>BillingMonth</th>
+            <th>CapacityQty</th>
+            <th>Rate</th>
+            <th>BillAmount</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var openingInvoice in Model.OpeningInvoices)
+        {
+
+            <tr>
+                <td>@openingInvoice.Id</td>
+                <td>@openingInvoice.ClientId</td>
+                <td>@openingInvoice.LinkServiceId</td>
+                <td>@openingInvoice.BillingStartDate</td>
+                <td>@openingInvoice.BillingEndDate</td>
+                <td>@openingInvoice.BillingDurationDays</td>
+                <td>@openingInvoice.DaysInMonths</td>
+                <td>@openingInvoice.BillingYear</td>
+                <td>@openingInvoice.BillingMonth</td>
+                <td>@openingInvoice.CapacityQty</td>
+                <td>@openingInvoice.Rate</td>
+                <td>@openingInvoice.BillAmount</td>
+                <td>
+                    <a asp-controller="OpeningInvoices" asp-action="Edit" asp-route-id="@openingInvoice.Id">Edit</a>
+                      
+                </td>
+            </tr>
+        }
+    </table>
+}
+
